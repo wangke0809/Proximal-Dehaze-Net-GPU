@@ -14,6 +14,8 @@ pnet = load('net-ours-s1.mat');
 net = Net(pnet.net);
 net.move('gpu');
 
+tic
+
 [sx, sy, ~] = size(noisy);
 I = noisy;
 for c=1:3
@@ -58,6 +60,8 @@ restt = max(min(restt, 1), 0);
 
 resim = resim(1:end-RX, 1:end-RY, :);
 restt = restt(1:end-RX, 1:end-RY, :);
+
+toc
 
 end
 
